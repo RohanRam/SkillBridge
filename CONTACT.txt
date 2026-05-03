@@ -1,0 +1,7 @@
+Full Name: [Insert Name]
+Email: [Insert Email]
+Phone: [Insert Phone]
+GitHub: [Insert GitHub URL]
+
+Most Challenging Part:
+Implementing the dual-token architecture for the Monitoring Officer while ensuring the FastAPI dependency injection cleanly separated the standard OAuth2 Bearer token from the specialized, scoped monitoring token without conflicting.
