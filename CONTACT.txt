@@ -2,6 +2,7 @@ Full Name: [ROHAN RAM]
 Email: [rohanram86@gmail.com]
 Phone: [+91 7012049520]
 GitHub: [https://github.com/RohanRam]
+LinkedIn: [https://www.linkedin.com/in/rohanram86]
 
 Most Challenging Part:
 I've used AI to build this project, so not that much difficulty was there , found so many bugs that I fixed manually , Nothing was that difficult to mention here although I faced some issues with Render deployment, took me some time to fix issues and at last I was able to deploy it on Render.

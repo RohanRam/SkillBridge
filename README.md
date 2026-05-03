@@ -165,8 +165,7 @@ curl -X GET https://skillbridge-api-tztw.onrender.com/monitoring/attendance \
 - Pytest suite successfully testing database models and core API flows.
 
 ## What's Skipped / Limitations
-- Deployment scripts (e.g. Dockerfile). The user is required to set up their own platform variables (Railway/Render) and attach their Neon Postgres DB URL.
 - Front-end integration (pure API as requested).
 
 ## If I had more time...
-I would implement comprehensive logging using `structlog` or Python's native logging to track exactly when and who hits the endpoints. I would also add Alembic for database migrations instead of relying on `Base.metadata.create_all()`.
+I would implement comprehensive logging using `structlog` or Python's native logging to track exactly when and who hits the endpoints. I would also add Alembic for database migrations instead of relying on `Base.metadata.create_all()`.I would also like to have a clean , minimal and elegant front-end for this project. 
