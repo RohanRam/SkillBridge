@@ -3,9 +3,9 @@
 > **Note:** The API is designed for the SkillBridge Attendance system. 
 
 ## Live API Deployment
-**Base URL:** `[Insert Your Render/Railway/Fly.io URL Here]`
+**Base URL:** `https://skillbridge-api-tztw.onrender.com`
 
-*(Since you are deploying this from your own account, please add your live URL here once deployed).*
+*(Check out the interactive API documentation at [https://skillbridge-api-tztw.onrender.com/docs](https://skillbridge-api-tztw.onrender.com/docs))*
 
 ## Local Setup
 
