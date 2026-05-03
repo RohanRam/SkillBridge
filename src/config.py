@@ -14,7 +14,7 @@ try:
     settings = Settings()
 except Exception as e:
     print("\n" + "="*50)
-    print("🚨 ENVIRONMENT VARIABLES MISSING OR INCORRECT 🚨")
+    print("!! ENVIRONMENT VARIABLES MISSING OR INCORRECT !!")
     print("="*50)
     print("Please add the following variables in the Render Dashboard:")
     print("- DATABASE_URL")

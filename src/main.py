@@ -11,7 +11,7 @@ try:
     print("Database connected and initialized successfully!")
 except Exception as e:
     print("\n" + "="*50)
-    print("🚨 DATABASE CONNECTION OR INITIALIZATION FAILED 🚨")
+    print("!! DATABASE CONNECTION OR INITIALIZATION FAILED !!")
     print("="*50)
     traceback.print_exc()
     print("="*50 + "\n")

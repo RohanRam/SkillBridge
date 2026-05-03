@@ -4,4 +4,4 @@ Phone: [+91 7012049520]
 GitHub: [https://github.com/RohanRam]
 
 Most Challenging Part:
-Implementing the dual-token architecture for the Monitoring Officer while ensuring the FastAPI dependency injection cleanly separated the standard OAuth2 Bearer token from the specialized, scoped monitoring token without conflicting.
+I've used AI to build this project, so not that much difficulty was there , found so many bugs that I fixed manually , Nothing was that difficult to mention here although I faced some issues with Render deployment, took me some time to fix issues and at last I was able to deploy it on Render.

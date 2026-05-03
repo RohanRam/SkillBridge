@@ -64,27 +64,97 @@ Currently, JWTs are stateless. In a real deployment, I would implement a Redis-b
 
 ## Curl Commands
 
-**Login (Trainer):**
+**1. Signup (Trainer):**
 ```bash
-curl -X POST http://127.0.0.1:8000/auth/login \
+curl -X POST https://skillbridge-api-tztw.onrender.com/auth/signup \
+     -H "Content-Type: application/json" \
+     -d '{
+       "name": "John Trainer",
+       "email": "trainer1@test.com",
+       "password": "password123",
+       "role": "trainer"
+     }'
+```
+
+**2. Login (Get Standard JWT):**
+```bash
+curl -X POST https://skillbridge-api-tztw.onrender.com/auth/login \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "username=trainer1@test.com&password=password123"
 ```
 
-**Get Monitoring Token:**
+**3. Create a Batch (Trainer/Institution):**
 ```bash
-# Assuming $STANDARD_TOKEN is set
-curl -X POST http://127.0.0.1:8000/auth/monitoring-token \
-     -H "Authorization: Bearer $STANDARD_TOKEN" \
+# Assuming $TOKEN is set
+curl -X POST https://skillbridge-api-tztw.onrender.com/batches \
+     -H "Authorization: Bearer $TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Summer Skilling Batch 2024", "institution_id": 1}'
+```
+
+**4. Generate Student Invite Link (Trainer):**
+```bash
+curl -X POST https://skillbridge-api-tztw.onrender.com/batches/1/invite \
+     -H "Authorization: Bearer $TOKEN"
+```
+
+**5. Join a Batch (Student):**
+```bash
+# Student Token required
+curl -X POST https://skillbridge-api-tztw.onrender.com/batches/join \
+     -H "Authorization: Bearer $STUDENT_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{"token": "paste-invite-token-here"}'
+```
+
+**6. Create a Session (Trainer):**
+```bash
+curl -X POST https://skillbridge-api-tztw.onrender.com/sessions \
+     -H "Authorization: Bearer $TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "batch_id": 1,
+       "title": "Introduction to Python",
+       "date": "2024-05-15",
+       "start_time": "10:00",
+       "end_time": "12:00"
+     }'
+```
+
+**7. Mark Attendance (Student):**
+```bash
+curl -X POST https://skillbridge-api-tztw.onrender.com/attendance/mark \
+     -H "Authorization: Bearer $STUDENT_TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{"session_id": 1, "status": "present"}'
+```
+
+**8. View Session Attendance (Trainer):**
+```bash
+curl -X GET https://skillbridge-api-tztw.onrender.com/sessions/1/attendance \
+     -H "Authorization: Bearer $TOKEN"
+```
+
+**9. Get Batch Summary (Institution):**
+```bash
+curl -X GET https://skillbridge-api-tztw.onrender.com/batches/1/summary \
+     -H "Authorization: Bearer $INSTITUTION_TOKEN"
+```
+
+**10. Get Monitoring Token (Monitoring Officer):**
+```bash
+# Login normally as MO first, then:
+curl -X POST https://skillbridge-api-tztw.onrender.com/auth/monitoring-token \
+     -H "Authorization: Bearer $MO_STANDARD_TOKEN" \
      -H "Content-Type: application/json" \
      -d '{"key": "testmonitoringkey"}'
 ```
 
-**View All Attendance (Monitoring Officer):**
+**11. View All Attendance (Scoped Monitoring Token):**
 ```bash
-# Assuming $MONITORING_TOKEN is set
-curl -X GET http://127.0.0.1:8000/monitoring/attendance \
-     -H "Authorization: Bearer $MONITORING_TOKEN"
+# Using the short-lived scoped token
+curl -X GET https://skillbridge-api-tztw.onrender.com/monitoring/attendance \
+     -H "Authorization: Bearer $MONITORING_SCOPED_TOKEN"
 ```
 
 ## What's Working
