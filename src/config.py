@@ -9,4 +9,18 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env")
 
-settings = Settings()
+import sys
+try:
+    settings = Settings()
+except Exception as e:
+    print("\n" + "="*50)
+    print("🚨 ENVIRONMENT VARIABLES MISSING OR INCORRECT 🚨")
+    print("="*50)
+    print("Please add the following variables in the Render Dashboard:")
+    print("- DATABASE_URL")
+    print("- JWT_SECRET")
+    print("- MONITORING_API_KEY")
+    print("\nError Details:")
+    print(str(e))
+    print("="*50 + "\n")
+    sys.exit(1)

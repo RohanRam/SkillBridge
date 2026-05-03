@@ -1,7 +1,7 @@
-Full Name: [Insert Name]
-Email: [Insert Email]
-Phone: [Insert Phone]
-GitHub: [Insert GitHub URL]
+Full Name: [ROHAN RAM]
+Email: [rohanram86@gmail.com]
+Phone: [+91 7012049520]
+GitHub: [https://github.com/RohanRam]
 
 Most Challenging Part:
 Implementing the dual-token architecture for the Monitoring Officer while ensuring the FastAPI dependency injection cleanly separated the standard OAuth2 Bearer token from the specialized, scoped monitoring token without conflicting.

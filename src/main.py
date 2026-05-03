@@ -2,9 +2,20 @@ from fastapi import FastAPI
 from src.database import engine, Base
 from src.routes import auth, batches, sessions, attendance, reports, monitoring
 
-# Initialize database
-Base.metadata.create_all(bind=engine)
+import sys
+import traceback
 
+# Initialize database
+try:
+    Base.metadata.create_all(bind=engine)
+    print("Database connected and initialized successfully!")
+except Exception as e:
+    print("\n" + "="*50)
+    print("🚨 DATABASE CONNECTION OR INITIALIZATION FAILED 🚨")
+    print("="*50)
+    traceback.print_exc()
+    print("="*50 + "\n")
+    sys.exit(1)
 app = FastAPI(title="SkillBridge Attendance Management API")
 
 app.include_router(auth.router)
